@@ -1,42 +1,185 @@
-#root {
-  max-width: 1280px;
+@import "tailwindcss";
+
+* {
+  outline: hsla(217, 33%, 18%, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #020817;
+  color: hsla(210, 40%, 98%, 1);
+  font-feature-settings: "rlig", 1, "calt" 1;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  background-color: #020817;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+              0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+header .container-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.50rem 1rem;
+}
+
+header .navbar-class {
+  display: none;
+  margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  header .navbar-class {
+      display: flex;
+      gap: 1.5rem;
+    }
+}
+
+header .nav-mob {
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+}
+
+header .menu-toggle-class {
+  color: #51a2ff;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero */
+
+.hero-height {
+  background-color: #020617;
+  background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+section#home .content {
+  position: relative; 
+  z-index: 10; 
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; 
+  max-width: 48rem; 
+}
+
+/* About */
+body .about-section {
+  background-color: #020617;
+  padding: 6rem 2rem;   
+}
+
+.about-container {
+  max-width: 1400px;    
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  gap: 10rem;            
+  align-items: stretch;
+  justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* KIRI 4 BOX */
+.about-left {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 200px);
+  gap: 10rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-box {
+  width: 280px;
+  height: 280px;
+  background: #1a1b26;
+  border: 6px solid #51a2ff;
+  border-radius: 28px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.hex-border {
+  background: linear-gradient(
+    270deg,
+    #D1D5DB,
+    #51a2ff,
+    #020617,
+    #D1D5DB,
+    #51a2ff,
+    #1a1b26,
+    #51a2ff,
+    #D1D5DB,
+    #51a2ff,
+    #020617,
+    #D1D5DB,
+    #51a2ff,
+    #1a1b26,
+    #51a2ff,
+    #D1D5DB,
+    #51a2ff,
+    #020617,
+    #D1D5DB,
+    #51a2ff,
+    #1a1b26,
+    #51a2ff,
+    #D1D5DB,
+    #51a2ff,
+    #020617,
+    #D1D5DB,
+    #51a2ff,
+    #1a1b26,
+    #51a2ff,
+    #D1D5DB
+  );
+  background-size: 600% 600%;
+  animation: hexMove 3s linear infinite;
 }
 
-.card {
-  padding: 2em;
+@keyframes hexMove {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.read-the-docs {
-  color: #888;
+/* text-text */
+.hex-text {
+  background: linear-gradient(
+    270deg,
+    #D1D5DB,
+    #51a2ff,
+    #D1D5DB,
+    #51a2ff,
+    #51a2ff,
+    #D1D5DB
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-size: 600% 600%;
+  animation: hexMove 6s linear infinite;
+}
+
+@keyframes hexMove {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* bantuan akademik */
+#info-bntn-akademik {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    padding: 0 1rem;
 }

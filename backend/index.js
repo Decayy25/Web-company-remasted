@@ -1,20 +1,36 @@
-const { MongoClient } = require('mongodb');
-const uri = (process.env.MONGODB_URI || "mongodb://127.0.0.1:27017");
+import { register, login } from "./auth.js";
+import dontev from "dotenv";
 
-const client = new MongoClient(uri, {
-  serverSelectionTimeoutMS: 2000
+dontev.config({
+  path: "../.env"
 });
 
-(async () => {
-  await client.connect();
-  console.log("MongoDB Connected");
-})();
-
 const server = Bun.serve({
-  port: 5050,
-  fetch() {
-    return new Response("Server jalan!");
+  port: (process.env.PORT || 5050),
+
+  async fetch(req) {
+    const url = new URL(req.url);
+
+    if (url.pathname === "/api/auth/register" &&
+        req.method === "POST") {
+      return register(req);
+    }
+
+    if (url.pathname === "/api/auth/login" &&
+        req.method === "POST") {
+      return login(req);
+    }
+
+    return new Response(`
+    +==================================================+
+    ✅ Server jalan!
+    +==================================================+
+    `);
   },
 });
 
-console.log(`Server running di http://localhost:${server.port}`);
+console.log(`\x1b[32m
+  +==================================================+
+  ✅ Server running di http://localhost:${server.port}
+  +==================================================+
+`);

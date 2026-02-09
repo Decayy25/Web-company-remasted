@@ -1,33 +1,56 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { Routes, Route} from 'react-router-dom';
+
+import Home from "./components/Home.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+
+// import Login from "./pages/Login.jsx";
+// import Register from "./pages/Register.jsx";
+
+// import Visi_misi from "./pages/VisiMisi.jsx";
+// import Tata_tertib from "./pages/TataTertib.jsx";
+
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:5050/api/accounts")
+  //     .then(res => res.json())
+  //     .then(data => setAccount(data))
+  //     .catch(err => console.error("Error fetching account:", err));
+  // }, []);
+
+  useEffect(() => {
+    const dummy = [
+      { username: "Admin", email: "admin@mail.com" },
+      { username: "User", email: "user@mail.com" }
+    ];
+
+    setCount(dummy);
+  }, []);
+
+
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Header />
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* <route path="/informasi" element={<Informasi />} />
+      <route path="/Kurikulum" element={<Kurikulum />} />
+      <route path="/login" element={<Login/>} />
+      <route path="/register" element={<Register/>} />
+      <route path="/contact" element={<Contact />} />
+      <route path="/visi-misi" element={<Visi_misi/>} />
+      <route path="/tata-tertib" element={<Tata_tertib/>} /> */}
+    </Routes>
+
+    <Footer />
     </>
   )
 }
