@@ -1,5 +1,8 @@
 import React from "react";
 import heroImg from "../assets/img/image.png";
+import Informasi from "../pages/Informasi";
+import VisiMisi from "../pages/VisiMisi.jsx";
+import "../App.css"
 
 export default function Home() {
     return (
@@ -55,6 +58,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Informasi />
+
+      <VisiMisi />
       </>
     )
 }

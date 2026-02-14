@@ -1,10 +1,22 @@
-import React from "react";
+import { useEffect }  from "react";
+import feather from "feather-icons"
+import { Link } from "react-router-dom";
 import Logo from "../assets/img/profile.png";
 
+const Istagram = "https://www.instagram.com/smart_clk/";
+const Facebook = "https://www.facebook.com/profile.php?id=100080470501420&ref=_ig_profile_ac";
+const YouTube  ="https://www.youtube.com/c/SMKMaarifTerpaduCicalengka119";
+
 export default function Footer() {
+
+  useEffect(() => {
+    feather.replace();
+  }, []);
+
+
   return (
     <footer className="bg-[#1a1b26] py-14 mt-20">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="container mx-auhref px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         
         {/* Logo */}
         <div>
@@ -27,24 +39,24 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <a href="#" className="hover:text-[#51a2ff]">
+              <Link to="#" className="hover:text-[#51a2ff]">
                 Bantuan Akademik
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#51a2ff]">
+              <Link to="#" className="hover:text-[#51a2ff]">
                 Informasi Kurikulum
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#51a2ff]">
+              <Link to="#" className="hover:text-[#51a2ff]">
                 Tata Tertib Sekolah
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#51a2ff]">
+              <Link to="#" className="hover:text-[#51a2ff]">
                 Profil Guru
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -57,32 +69,32 @@ export default function Footer() {
           <ul className="flex items-center space-x-4 text-gray-300">
             <li>
               <a
-                href="https://www.instagram.com/smart_clk/"
+                href={Istagram}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#51a2ff]"
               >
-                Instagram
+                <i data-feather="instagram"></i>
               </a>
             </li>
             <li>
               <a
-                href="https://www.facebook.com/"
+                href={Facebook}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#51a2ff]"
               >
-                Facebook
+                <i data-feather="facebook"></i>
               </a>
             </li>
             <li>
               <a
-                href="https://youtube.com/"
+                href={YouTube}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-[#51a2ff]"
               >
-                YouTube
+                <i data-feather="youtube"></i>
               </a>
             </li>
           </ul>

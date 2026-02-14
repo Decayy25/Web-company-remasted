@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { Routes, Route} from 'react-router-dom';
 
 import Home from "./components/Home.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
+import Informasi from './pages/Informasi.jsx';
+import VisiMisi from "./pages/VisiMisi.jsx";
+// import Tata_tertib from "./pages/TataTertib.jsx";
+
 // import Login from "./pages/Login.jsx";
 // import Register from "./pages/Register.jsx";
 
-// import Visi_misi from "./pages/VisiMisi.jsx";
-// import Tata_tertib from "./pages/TataTertib.jsx";
+
+
 
 import './App.css'
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [acount, setCount] = useState([])
 
   // useEffect(() => {
   //   fetch("http://127.0.0.1:5050/api/accounts")
@@ -26,6 +30,12 @@ function App() {
   // }, []);
 
   useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false
+    });
+    AOS.refresh();
+
     const dummy = [
       { username: "Admin", email: "admin@mail.com" },
       { username: "User", email: "user@mail.com" }
@@ -35,19 +45,21 @@ function App() {
   }, []);
 
 
+
   return (
     <>
     <Header />
 
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <route path="/informasi" element={<Informasi />} />
-      <route path="/Kurikulum" element={<Kurikulum />} />
-      <route path="/login" element={<Login/>} />
+      <Route path="/Informasi" element={<Informasi />} />
+      <Route path="/VisiMisi" element={<VisiMisi/>} />
+      {/* <route path="/Kurikulum" element={<Kurikulum />} /> */}
+      {/* <route path="/login" element={<Login/>} />
       <route path="/register" element={<Register/>} />
-      <route path="/contact" element={<Contact />} />
-      <route path="/visi-misi" element={<Visi_misi/>} />
-      <route path="/tata-tertib" element={<Tata_tertib/>} /> */}
+      <route path="/contact" element={<Contact />} /> */}
+      
+      {/* <route path="/tata-tertib" element={<Tata_tertib/>} /> */}
     </Routes>
 
     <Footer />
