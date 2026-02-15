@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#1a1b26] py-14 mt-20">
-      <div className="container mx-auhref px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         
         {/* Logo */}
         <div>
@@ -27,7 +27,7 @@ export default function Footer() {
             <img
               src={Logo}
               alt="Profile Sekolah"
-              className="h-36 w-36 rounded-full bg-[#1a1b26]"
+              className="h-36 w-36 rounded-full"
             />
           </div>
         </div>
@@ -39,22 +39,22 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <Link to="#" className="hover:text-[#51a2ff]">
+              <Link to="/BantuanAkademik" className="hover:text-[#51a2ff]">
                 Bantuan Akademik
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-[#51a2ff]">
+              <Link to="/Kurikulum" className="hover:text-[#51a2ff]">
                 Informasi Kurikulum
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-[#51a2ff]">
+              <Link to="/TataTertib" className="hover:text-[#51a2ff]">
                 Tata Tertib Sekolah
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-[#51a2ff]">
+              <Link to="/ProfileGuru" className="hover:text-[#51a2ff]">
                 Profil Guru
               </Link>
             </li>
@@ -106,8 +106,8 @@ export default function Footer() {
             Contact
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li>Email : smartclk@gmail.com</li>
-            <li>Phone : (022) 7940056</li>
+            <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i><span>Email :  info@smkmaarifterpaduclk.sch.id</span></li>
+            <li class="flex items-center gap-2"><i data-feather="phone" class="w-4 h-4"></i><span>Phone : (022) 7940056</span></li>
           </ul>
         </div>
       </div>

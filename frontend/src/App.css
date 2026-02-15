@@ -112,46 +112,46 @@ body .about-section {
 }
 
 .hex-border {
-  background: linear-gradient(
-    270deg,
+  position: relative;
+  padding: 6px; /* tebal border */
+  overflow: hidden;
+}
+
+.hex-border::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  background: conic-gradient(
     #D1D5DB,
     #51a2ff,
     #020617,
-    #D1D5DB,
-    #51a2ff,
     #1a1b26,
     #51a2ff,
     #D1D5DB,
     #51a2ff,
     #020617,
-    #D1D5DB,
-    #51a2ff,
     #1a1b26,
     #51a2ff,
     #D1D5DB,
     #51a2ff,
     #020617,
-    #D1D5DB,
-    #51a2ff,
-    #1a1b26,
-    #51a2ff,
-    #D1D5DB,
-    #51a2ff,
-    #020617,
-    #D1D5DB,
-    #51a2ff,
     #1a1b26,
     #51a2ff,
     #D1D5DB
   );
-  background-size: 600% 600%;
-  animation: hexMove 3s linear infinite;
+  animation: rotateBorder 2s linear infinite;
 }
 
-@keyframes hexMove {
-  0%   { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.hex-border > * {
+  position: relative;
+  border-radius: 55%;
 }
+
+@keyframes rotateBorder {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 
 /* text-text */
 .hex-text {

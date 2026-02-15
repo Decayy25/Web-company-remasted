@@ -3,7 +3,7 @@ import React from "react";
 export default function VisiMisi () {
     return (
         <>
-            <section id="visi-misi" className="py-20 bg-[#020617]">
+            <section id="VisiMisi" className="py-20 bg-[#020617]">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">
                         Visi Misi & Tujuan Sekolah

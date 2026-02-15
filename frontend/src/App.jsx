@@ -7,7 +7,8 @@ import Footer from "./components/Footer.jsx";
 
 import Informasi from './pages/Informasi.jsx';
 import VisiMisi from "./pages/VisiMisi.jsx";
-// import Tata_tertib from "./pages/TataTertib.jsx";
+import TataTertib from "./pages/TataTertib.jsx";
+import BantuanAkademik from "./pages/BantunAkademik.jsx";
 
 // import Login from "./pages/Login.jsx";
 // import Register from "./pages/Register.jsx";
@@ -54,6 +55,9 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/Informasi" element={<Informasi />} />
       <Route path="/VisiMisi" element={<VisiMisi/>} />
+      <Route path='/TataTertib' element={<TataTertib />}/>
+      <Route path='/BantuanAkademik' element={<BantuanAkademik />} />
+
       {/* <route path="/Kurikulum" element={<Kurikulum />} /> */}
       {/* <route path="/login" element={<Login/>} />
       <route path="/register" element={<Register/>} />
