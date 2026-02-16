@@ -4,25 +4,33 @@ import { db } from "../db/db.js";
 import { password } from "bun";
 
 export async function register(req) {
-  const body = await req.json();
+  try {
+    // Cek apakah ada body atau tidak
+    const body = await req.json();
 
-  const existing = await db.collection("users")
-    .findOne({ email: body.email });
+    if (!body.email || !body.password) {
+      return new Response("Email dan password wajib diisi", { status: 400 });
+    }
 
-  if (existing) {
-    return new Response("Email sudah ada", { status: 400 });
+    const existing = await db.collection("users").findOne({ email: body.email });
+    if (existing) {
+      return new Response("Email sudah ada", { status: 400 });
+    }
+
+    const hashed = await bcrypt.hash(body.password, 10);
+    await db.collection("users").insertOne({
+      username: body.username,
+      email: body.email,
+      password: hashed,
+      createdAt: new Date(),
+    });
+
+    return new Response("Register berhasil");
+
+  } catch (err) {
+    // Jika JSON kosong atau format salah, error akan lari ke sini
+    return new Response("Format JSON salah atau Body kosong", { status: 400 });
   }
-
-  const hashed = await bcrypt.hash(body.password, 10);
-
-  await db.collection("users").insertOne({
-    username: body.username,
-    email: body.email,
-    password: hashed,
-    createdAt: new Date(),
-  });
-
-  return new Response("Register berhasil");
 }
 
 export async function login(req) {

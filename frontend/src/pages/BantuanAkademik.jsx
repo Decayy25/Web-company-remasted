@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TataTertib() {
+export default function BantuanAkademik() {
 
   const bntn_akademik_list = [
     {
