@@ -9,6 +9,9 @@ import Informasi from './pages/Informasi.jsx';
 import VisiMisi from "./pages/VisiMisi.jsx";
 import TataTertib from "./pages/TataTertib.jsx";
 import BantuanAkademik from "./pages/BantuanAkademik.jsx";
+import Ekstrakurikuler from './pages/Ekstrakurikuler.jsx';
+import ProfileGuru from './pages/ProfileGuru.jsx';
+import Kurikulum from './pages/Kurikulum.jsx';
 
 // import Login from "./pages/Login.jsx";
 // import Register from "./pages/Register.jsx";
@@ -52,10 +55,12 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/Informasi" element={<Informasi />} />
       <Route path="/VisiMisi" element={<VisiMisi/>} />
-      <Route path='/TataTertib' element={<TataTertib />}/>
+      <Route path='/TataTertib' element={<TataTertib />} />
       <Route path='/BantuanAkademik' element={<BantuanAkademik />} />
+      <Route path='/Ekstrakurikuler' element={<Ekstrakurikuler/>} />
+      <Route path='/ProfileGuru' element={<ProfileGuru /> } />
+      <Route path="/Kurikulum" element={<Kurikulum />} />
 
-      {/* <route path="/Kurikulum" element={<Kurikulum />} /> */}
       {/* <route path="/login" element={<Login/>} />
       <route path="/register" element={<Register/>} />
       <route path="/contact" element={<Contact />} /> */}

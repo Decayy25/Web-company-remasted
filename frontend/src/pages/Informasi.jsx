@@ -3,10 +3,10 @@ import "../App.css"
 import profile from "../assets/img/profile.png";
 
 const members = [
-  { title: "Ekstrakurikuler", target: "", href: "pages/Eskul.html", aos: "fade-down-right", rotate: "-9deg"},
-  { title: "Informasi Jurusan", target: "_blank", href: "pages/jurusan.pdf", aos: "fade-down-left", rotate: "9deg"},
-  { title: "Jadwal Pelajaran", target: "_blank", href: "pages/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg"},
-  { title: "Brosur PPDB 2024", target: "_blank", href: "pages/brosur.pdf", aos: "fade-up-left", rotate: "9deg"},
+  { title: "Ekstrakurikuler", target: "", href:"/Ekstrakurikuler" , aos: "fade-down-right", rotate: "-9deg"},
+  { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg"},
+  { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg"},
+  { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg"},
 ];
 
 export default function Informasi () {
@@ -23,6 +23,8 @@ export default function Informasi () {
                             key={i}
                             href={member.href}
                             target={member.target}
+                            rel={member.target === "_blank" ? "noopener noreferrer" : undefined}
+                            download={member.href.endsWith('.pdf') ? "" : undefined}
                             data-aos={member.aos}
                             className="block"
                             onMouseEnter={() => setHoverIndex(i)}
