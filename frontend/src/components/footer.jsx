@@ -106,8 +106,8 @@ export default function Footer() {
             Contact
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i><span>Email :  info@smkmaarifterpaduclk.sch.id</span></li>
-            <li class="flex items-center gap-2"><i data-feather="phone" class="w-4 h-4"></i><span>Phone : (022) 7940056</span></li>
+            <li className="flex items-center gap-2"><i data-feather="mail" className="w-4 h-4"></i><span>Email :  info@smkmaarifterpaduclk.sch.id</span></li>
+            <li className="flex items-center gap-2"><i data-feather="phone" className="w-4 h-4"></i><span>Phone : (022) 7940056</span></li>
           </ul>
         </div>
       </div>

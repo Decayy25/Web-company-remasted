@@ -3,10 +3,8 @@ import jwt from "jsonwebtoken";
 import { db } from "../db/db.js";
 import { password } from "bun";
 
-export async function register(req) {
+export async function register(body) {
   try {
-    // Cek apakah ada body atau tidak
-    const body = await req.json();
 
     if (!body.email || !body.password) {
       return new Response("Email dan password wajib diisi", { status: 400 });
@@ -58,7 +56,11 @@ export async function login(req) {
     { expiresIn: "1d" }
   );
 
-  return Response.json({ token });
+  return Response.json({ 
+    token,
+    email: user.email,
+    username: user.username
+  });
 }
 
 export async function getAccounts() {

@@ -12,7 +12,7 @@ export default function Header () {
                         <a href="/" className="text-white hover:text-blue-500">Home</a>
                         <a href="#informasi" className="text-white hover:text-blue-500">Informasi</a>
                         <a href="#VisiMisi" className="text-white hover:text-blue-500">Visi-Misi</a>
-                        <Link to="/contact" className="text-white hover:text-blue-500">Contact</Link>
+                        <Link to="/Contact" className="text-white hover:text-blue-500">Contact</Link>
                     </nav>
                 </div>
             </div>

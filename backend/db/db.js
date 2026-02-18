@@ -1,9 +1,11 @@
+import { Elysia } from "elysia";
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017";
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 const client = new MongoClient(uri, {
   serverSelectionTimeoutMS: 2000,
+  family: 4
 });
 
 try {
@@ -19,3 +21,4 @@ try {
 }
 
 export const db = client.db("myapp");
+export const usersCollection = db.collection("users");
