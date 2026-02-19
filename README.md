@@ -44,6 +44,7 @@ web-company-merb-stack/
 │   ├── index.js              # Entry point Server & API Routes
 │   └── package.json
 └── .env                      # Variabel Lingkungan (Shared/Root)
+```
 
 ## Konfigurasi Environment
 
