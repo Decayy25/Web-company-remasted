@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-// 1. Tambahkan useLocation di sini
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import Home from "./components/Home.jsx";
 import Header from "./components/Header.jsx";
@@ -15,15 +14,18 @@ import ProfileGuru from "./pages/ProfileGuru.jsx";
 import Kurikulum from "./pages/Kurikulum.jsx";
 
 import Login from "./pages/Login.jsx";
-import Contact from './components/Contact.jsx';
+import Contact from './pages/Contact.jsx';
+import Register from './pages/Register.jsx';
 
 import './App.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function App() {
+
   const [account, setAccount] = useState([]);
   const location = useLocation();
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
@@ -36,31 +38,29 @@ export default function App() {
       })
       .catch(err => console.error("Error fetching account:", err));
   }, []);
+  const hideHeaderFooter = ["/login", "/register"];
 
-  // 3. Buat daftar halaman yang TIDAK BOLEH ada Header & Footer
-  // Nanti kalau ada register, tinggal tambah: ["/login", "/register"]
-  const hideHeaderFooter = ["/login", "/register"]; 
-
-  // Cek apakah path sekarang ada di daftar hideHeaderFooter?
-  const isAuthPage = hideHeaderFooter.includes(location.pathname);
+  const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
+  const isAuthPage = hideHeaderFooter.includes(currentPath);
 
   return (
     <>
-      {!isAuthPage && <Header />}
+      {!isAuthPage && <Header setToken={setToken} />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Informasi" element={<Informasi />} />
-        <Route path="/VisiMisi" element={<VisiMisi/>} />
-        <Route path='/TataTertib' element={<TataTertib />} />
-        <Route path='/BantuanAkademik' element={<BantuanAkademik />} />
-        <Route path='/Ekstrakurikuler' element={<Ekstrakurikuler/>} />
-        <Route path='/ProfileGuru' element={<ProfileGuru /> } />
-        <Route path="/Kurikulum" element={<Kurikulum />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={!token ? <Login setToken={setToken} /> : <Navigate to="/" />} />
+        <Route path="/register" element={!token ? <Register /> : <Navigate to="/" />} />
+        <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} />
         
-        {/* 5. Masukkan Route Login ke DALAM sini (Wajib!) */}
-        <Route path="/login" element={<Login/>} />
+
+        <Route path="/Informasi" element={<Informasi />} />
+        <Route path="/VisiMisi" element={<VisiMisi />} />
+        <Route path="/TataTertib" element={<TataTertib />} />
+        <Route path="/BantuanAkademik" element={<BantuanAkademik />} />
+        <Route path="/Ekstrakurikuler" element={<Ekstrakurikuler />} />
+        <Route path="/ProfileGuru" element={<ProfileGuru />} />
+        <Route path="/Kurikulum" element={<Kurikulum />} />
+        <Route path="/contact" element={token ? <Contact token={token} /> : <Navigate to="/login" />} />
       </Routes>
 
       {/* 6. Tampilkan Footer HANYA JIKA bukan di halaman auth */}

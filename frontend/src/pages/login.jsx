@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import img from "../assets/img/profile.png";
 
-export default function Login() {
+export default function Login({ setToken }) {
     const navigate = useNavigate();
     
     // 1. State untuk simpan input user
@@ -23,8 +23,7 @@ export default function Login() {
         e.preventDefault(); 
 
         try {
-            // Kirim data ke backend (POST, bukan GET)
-            const response = await fetch("http://localhost:5050/api/login", {
+            const response = await fetch("http://localhost:5050/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,9 +37,9 @@ export default function Login() {
                 // Simpan token
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("userEmail", data.email);
-                
-                // Pindah halaman dengan cara React yang benar
-                navigate("/contact"); 
+
+                setToken(data.token)
+                navigate("/"); 
             } else {
                 alert(data.message || "Login gagal");
             }
@@ -64,7 +63,6 @@ export default function Login() {
                                 name="email"
                                 type="email"
                                 required
-                                // Tambahkan value dan onChange
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white..."
@@ -91,6 +89,13 @@ export default function Login() {
 
                     <div>
                         <button type="submit" className="...">Sign in</button>
+                        <div className="text-center mt-4 text-sm text-gray-300">
+                            Belum punya akun?{" "}
+                        <Link to="/register" className="text-blue-400 hover:underline">
+                            Register here
+                        </Link>
+                    </div>
+
                     </div>
                 </form>
             </div>

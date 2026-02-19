@@ -1,10 +1,10 @@
 import { Elysia } from "elysia";
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const uri = "mongodb://localhost:27017";
 
 const client = new MongoClient(uri, {
-  serverSelectionTimeoutMS: 2000,
+  serverSelectionTimeoutMS: 10000,
   family: 4
 });
 
