@@ -73,10 +73,10 @@ bun run dev
 
 ## Dokumentasi API
 ```
-Fitur,Method,Endpoint,Keterangan
-Register,POST,/api/auth/register,Membuat akun baru
-Login,POST,/api/auth/login,Login & Simpan Token
-Profile,GET,/api/me,Ambil data user aktif (query email)
-Contact,POST,/api/contact,Simpan pesan ke DB
-Admin,GET,/api/accounts,Lihat semua akun terdaftar
+Fitur       Method          Endpoint                    Keterangan
+Register    POST            /api/auth/register          Membuat akun baru
+Login       POST            /api/auth/login             Login & Simpan Token
+Profile     GET             /api/me                     Ambil data user aktif (query email)
+Contact     POST            /api/contact                Simpan pesan ke DB
+Admin       GET             /api/accounts               Lihat semua akun terdaftar
 ```
