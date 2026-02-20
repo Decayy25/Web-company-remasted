@@ -29,8 +29,8 @@ export default function App() {
 
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
-
-    fetch("http://127.0.0.1:5050/api/accounts")
+    
+    fetch(`${import.meta.env.VITE_API_URL}/api/accounts`)
       .then(res => res.json())
       .then(data => { 
         setAccount(data);

@@ -7,7 +7,7 @@ dotenv.config({
   path: path.resolve(process.cwd(), "../.env")
 });
 
-const uri = process.env.MONGO_URI ||"mongodb://localhost:27017";
+const uri = process.env.MONGO_URI;
 
 const client = new MongoClient(uri, {
   serverSelectionTimeoutMS: 10000,

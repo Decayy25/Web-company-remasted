@@ -13,7 +13,7 @@ export default function Contact({ setToken }) {
       return;
     }
 
-    fetch(`http://localhost:5050/api/me?email=${emailYangLogin}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/me?email=${emailYangLogin}`)
       .then(res => res.json())
       .then(data => {
         console.log("USER DATA:", data);
