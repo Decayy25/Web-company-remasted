@@ -29,7 +29,17 @@ const app = new Elysia()
           .post('/register', ({ body }) => register(body))
       )
 
-      .get("/accounts", () => getAccounts())
+      // .get("/accounts", () => getAccounts())
+      .get("/accounts", async () => {
+        try {
+          return await getAccounts();
+        } catch (error) {
+          return {
+            error: "Gagal mengambil data",
+            detail: error.message
+          };
+        } 
+      })
 
       .get("/me", async ({ query }) => {
         const user = await usersCollection.findOne({ email: query.email });
