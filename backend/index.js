@@ -14,7 +14,11 @@ dotenv.config({
 const PORT = process.env.PORT || 5050;
 
 const app = new Elysia()
-  .use(cors())
+  .use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }))
 
   .group("/api", (app) =>
     app
