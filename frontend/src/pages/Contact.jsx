@@ -39,7 +39,7 @@ export default function Contact({ setToken }) {
     const message = e.target.message.value;
 
     try {
-      const res = await fetch("http://localhost:5050/api/contact", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
