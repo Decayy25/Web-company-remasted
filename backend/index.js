@@ -12,89 +12,103 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-const PORT = process.env.PORT || 5050;
 
 const app = new Elysia()
-  .use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-  }))
+    .use(cors({
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true
+    }))
 
-  .group("/api", (app) =>
-    app
-      .group("/auth", (app) =>
+
+    .get("/", () => ({
+        status: "Online",
+        message: "Elysia Backend is running perfectly!",
+        database: process.env.MONGO_URI ? "Connected (Env OK)" : "Missing Env"
+    }))
+
+
+    .group("/api", (app) =>
         app
-          .post('/login', ({ body }) => login(body))
-          .post('/register', ({ body }) => register(body))
-      )
+            // Auth Group
+            .group("/auth", (app) =>
+                app
+                    .post('/login', ({ body }) => login(body))
+                    .post('/register', ({ body }) => register(body))
+            )
 
-      // .get("/accounts", () => getAccounts())
-      .get("/accounts", async () => {
-        try {
-          return await getAccounts();
-        } catch (error) {
-          return {
-            error: "Gagal mengambil data",
-            detail: error.message
-          };
-        } 
-      })
+            .get("/accounts", async () => {
+                try {
+                    return await getAccounts();
+                } catch (error) {
+                    return {
+                        error: "Gagal mengambil data",
+                        detail: error.message
+                    };
+                }
+            })
 
-      .get("/me", async ({ query }) => {
-        const user = await usersCollection.findOne({ email: query.email });
-        return user;
-      })
+            .get("/me", async ({ query }) => {
+                try {
+                    const user = await usersCollection.findOne({ email: query.email });
+                    return user || { error: "User tidak ditemukan" };
+                } catch (error) {
+                    return { error: error.message };
+                }
+            })
 
-      .post("/contact", async ({ body }) => {
-        try {
-          await sendContactMail(body);
+            .post("/contact", async ({ body }) => {
+                try {
+                    const result = await db.collection("contacts").insertOne({
+                        name: body.name,
+                        email: body.email,
+                        message: body.message,
+                        createdAt: new Date()
+                    });
 
-          const result = await db.collection("contacts").insertOne({
-            name: body.name,
-            email: body.email,
-            message: body.message,
-            createdAt: new Date()
-          });
+                    return {
+                        success: true,
+                        message: "Pesan berhasil dikirim",
+                        id: result.insertedId
+                    };
+                } catch (err) {
+                    console.error("CONTACT ERROR:", err);
+                    return {
+                        success: false,
+                        error: err.message
+                    };
+                }
+            }, {
+                body: t.Object({
+                    name: t.String(),
+                    email: t.String(),
+                    message: t.String()
+                })
+            })
+    )
 
-          return {
-            success: true,
-            message: "Pesan berhasil dikirim",
-            id: result.insertedId
-          };
-
-        } catch (err) {
-          console.error("CONTACT ERROR:", err);
-
-          return {
-            success: false,
-            error: err.message
-          };
+    .onError(({ code, set, error }) => {
+        if (code === "NOT_FOUND") {
+            set.status = 404;
+            return { error: "Endpoint tidak ditemukan" };
         }
-      }, {
-        body: t.Object({
-          name: t.String(),
-          email: t.String(),
-          message: t.String()
-        })
-      })
-  )
+        console.error("Global Error:", error);
+        return {
+            status: 500,
+            error: error.message
+        };
+    });
 
-  .onError(({ code, set }) => {
-    if (code === "NOT_FOUND") {
-      set.status = 404;
-      return { error: "Endpoint tidak ditemukan" };
-    }
-  })
+export default app;
 
-  export default app;
-  // .listen( process.env.PORT ||PORT);
-
-console.log(`\x1b[32m
-+==================================================+
-✅ Elysia Server running!
-🌐 http://localhost:${PORT}
-📂 File: index.js
-+==================================================+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT);
+  console.log(`\x1b[32m
+  +==================================================+
+  ✅ Elysia Server running!
+  🌐 http://localhost:${PORT}
+  📂 File: index.js
+  +==================================================+
 `);
+}
