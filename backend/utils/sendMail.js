@@ -1,7 +1,13 @@
 import nodemailer from "nodemailer";
 
 export async function sendContactMail( {name, email, message }) {
+
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.error("❌ EMAIL_USER atau EMAIL_PASS tidak ditemukan di .env!");
+        throw new Error("konfigurasi email server tidak lengkap")
+    }
     const transporter = nodemailer.createTransport({
+        service: 'gmail',
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
