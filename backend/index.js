@@ -88,7 +88,8 @@ const app = new Elysia()
     }
   })
 
-  .listen(PORT);
+  export default app;
+  // .listen( process.env.PORT ||PORT);
 
 console.log(`\x1b[32m
 +==================================================+
