@@ -6,10 +6,11 @@ import { sendContactMail } from "./utils/sendMail.js";
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({
-  path: path.resolve(process.cwd(), "../.env")
-});
-
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({
+    path: path.resolve(process.cwd(), "../.env")
+  });
+}
 
 const PORT = process.env.PORT || 5050;
 

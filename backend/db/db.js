@@ -3,9 +3,12 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({
-  path: path.resolve(process.cwd(), "../.env")
-});
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({
+    path: path.resolve(process.cwd(), "../.env")
+  });
+}
+
 
 const uri = process.env.MONGO_URI;
 
