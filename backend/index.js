@@ -34,8 +34,8 @@ const app = new Elysia()
             // Auth Group
             .group("/auth", (app) =>
                 app
-                    .post('/login', ({ body }) => login(body))
-                    .post('/register', ({ body }) => register(body))
+                  .post('/login', async ({ body }) => await login(body))
+                  .post('/register', async ({ body }) => await register(body))
             )
 
             .get("/accounts", async () => {
