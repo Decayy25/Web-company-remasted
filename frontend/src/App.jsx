@@ -63,7 +63,7 @@ export default function App() {
         <Route path="/contact" element={token ? <Contact token={token} /> : <Navigate to="/login" />} />
       </Routes>
 
-      {/* 6. Tampilkan Footer HANYA JIKA bukan di halaman auth */}
+
       {!isAuthPage && <Footer />}
     </>
   )

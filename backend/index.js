@@ -10,6 +10,7 @@ dotenv.config({
   path: path.resolve(process.cwd(), "../.env")
 });
 
+
 const PORT = process.env.PORT || 5050;
 
 const app = new Elysia()

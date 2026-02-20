@@ -4,14 +4,11 @@ import img from "../assets/img/profile.png";
 
 export default function Login({ setToken }) {
     const navigate = useNavigate();
-    
-    // 1. State untuk simpan input user
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
 
-    // 2. Handle perubahan input ketikan
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -34,7 +31,6 @@ export default function Login({ setToken }) {
             const data = await response.json();
 
             if (response.ok && data.token) {
-                // Simpan token
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("userEmail", data.email);
 
@@ -50,7 +46,6 @@ export default function Login({ setToken }) {
 
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-10">
-            {/* ... Bagian Logo ... */}
             <img alt="Your Company" src={img} className="mx-auto h-32 w-auto"/>
             <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

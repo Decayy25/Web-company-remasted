@@ -1,7 +1,13 @@
 import { Elysia } from "elysia";
 import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
+import path from "path";
 
-const uri = "mongodb://localhost:27017";
+dotenv.config({
+  path: path.resolve(process.cwd(), "../.env")
+});
+
+const uri = process.env.MONGO_URI ||"mongodb://localhost:27017";
 
 const client = new MongoClient(uri, {
   serverSelectionTimeoutMS: 10000,
