@@ -1,15 +1,12 @@
 import { useState } from "react";
 import "../App.css"
 import profile from "../assets/img/profile.png";
-import jadwal from "./jadwal.pdf";
-import brosur from "./brosur.pdf";
-import jurusan from "./jurusan.pdf";
 
 const members = [
   { title: "Ekstrakurikuler", target: "", href:"/Ekstrakurikuler" , aos: "fade-down-right", rotate: "-9deg"},
-  { title: "Informasi Jurusan", target: "_blank", href: jurusan, aos: "fade-down-left", rotate: "9deg"},
-  { title: "Jadwal Pelajaran", target: "_blank", href: jadwal, aos: "fade-up-right", rotate: "-9deg"},
-  { title: "Brosur PPDB 2024", target: "_blank", href: brosur, aos: "fade-up-left", rotate: "9deg"},
+  { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg"},
+  { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg"},
+  { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg"},
 ];
 
 export default function Informasi () {
