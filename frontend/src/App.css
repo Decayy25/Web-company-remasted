@@ -89,21 +89,32 @@ body .about-section {
 }
 
 .about-container {
-  max-width: 1400px;    
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  gap: 10rem;            
-  align-items: stretch;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 
-/* KIRI 4 BOX */
 .about-left {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr; 
+  gap: 2rem; 
   justify-items: center;
-  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .about-left {
+    grid-template-columns: repeat(2, 280px);
+    gap: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {

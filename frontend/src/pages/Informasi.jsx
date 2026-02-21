@@ -18,7 +18,7 @@ export default function Informasi () {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">informasi Sekolah</h2>
             <div className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]">
                 <div 
-                    className="about-left grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-[10rem] !w-auto !h-auto justify-items-center" 
+                    className="about-left grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[10rem] !w-auto !h-auto justify-items-center" 
                     id="about-left">
                     {members.map((member, i) => (
                         <a 
