@@ -14,13 +14,12 @@ export default function Informasi () {
 
     return (
     <>
-        <section id="informasi" className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]" >
+        <section id="informasi" className="about-section" >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">informasi Sekolah</h2>
-            <div className="about-container">
+            <div className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]">
                 <div 
                     className="about-left grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[10rem] !w-auto !h-auto justify-items-center" 
-                    id="about-left"
-                >
+                    id="about-left">
                     {members.map((member, i) => (
                         <a 
                             key={i}
@@ -59,8 +58,8 @@ export default function Informasi () {
                 </div>
 
                 <div 
-                    className="w-full max-w-[460px] bg-[#1a1b26] border-[6px] border-[#51a2ff] 
-                    rounded-[28px] shadow-xl p-6 md:p-8 mx-auto lg:mx-0"
+                    className="w-full max-w-[460px] bg-[#1a1b26] border-[6px] 
+                    border-[#51a2ff] rounded-[28px] shadow-xl p-6 md:p-8 mx-auto lg:mx-0"
                     data-aos="flip-left"
                     data-aos-duration="2000"
                     data-aos-easing="ease-out-cubic"
