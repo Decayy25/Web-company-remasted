@@ -78,53 +78,71 @@ export default function TataTertib () {
               </div>
             </div>
 
-             <div className="mt-10">
-              <h2 className="text-2xl font-semibold flex justify-center">Pelanggaran</h2>
-              <div className="mt-10">
-                <table className="min-w-full flex justify-center" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-out-cubic">
-                  <tbody className="bg-[#1a1b26] border-[3px] border-[#51a2ff] rounded-[28px]">
-                    <tr>
-                      <td className="py-10 px-12 text-2xl border-b font-semibold">Pelanggaran Ringan
-                        <p className="text-1xl mt-5 font-normal font-sans">
-                          Pelanggaran ringan terhadap tata tertib akan <span className="underline decoration-[#51a2ff] underline-offset-8">dikenakan teguran.</span>
-                        </p>
-                      </td>
-                      <td className="py-10 px-12 text-2xl border-b font-semibold">Pelanggaran Berat
-                        <p className="text-1xl mt-5 font-normal font-sans">
-                          Pelanggaran kategori berat akan <span className="underline decoration-[#51a2ff] underline-offset-8">dikenakan sanksi tertentu sesuai dengan jenis pelanggaran yang dilakukan.</span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="py-10 px-12 text-2xl border-b font-semibold">Pelanggaran Poin A, B, C, D, H, I
-                        <p className="text-1xl mt-5 font-normal">
-                          Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8">A, B, C, D, H, I</span>
-                          akan ditegur oleh laboran atau guru yang sedang mengajar di laboraturium.
-                        </p>
-                      </td>
-                      <td className="py-10 px-12 text-2xl border-b font-semibold">Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">F</span>
-                        <p className="text-1xl mt-5 font-normal">
-                          Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8">F</span> akan dikenai sanksi teguran dan <span className="underline decoration-[#51a2ff] underline-offset-8">makanan/minuman</span>
-                          dilarang dibawa ke dalam laboraturium. Silahkan simpan diluar atau habiskan diluar.
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="py-10 px-12 text-2xl font-semibold">Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">G</span>
-                        <p className="text-1xl mt-5 font-normal">Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8">G</span> akan dikenai sanksi <span className="underline decoration-[#51a2ff] underline-offset-8">wajib
-                           mengganti dalam bentuk alat (bukan dalam bentuk uang) yang spesifikasinya sama</span>  dengan alat yang rusak/hilang.
-                        </p>
-                      </td>
-                      <td className="py-10 px-12 text-2xl font-semibold">Pelanggaran Terus Menerus
-                        <p className="text-1xl mt-5 font-normal">
-                          Bagi peserta didik yang sudah diberikan teguran namun tetap melanggar tata tertib maka akan <span className="underline decoration-[#51a2ff] underline-offset-8">dikoordinasikan dengan kesiswaan.</span>
-                        </p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div className="mt-10">
+              <h2 className="text-2xl font-semibold flex justify-center mb-10">Pelanggaran</h2>
+              <div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-[#1a1b26] border-[3px] border-[#51a2ff] rounded-[28px] overflow-hidden shadow-xl"
+                data-aos="flip-left" 
+                data-aos-duration="2000" 
+                data-aos-easing="ease-out-cubic"
+              >
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Ringan
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran ringan terhadap tata tertib akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan teguran.</span>
+                  </p>
+                </div>
+
+    
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Berat
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran kategori berat akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan sanksi tertentu sesuai dengan jenis pelanggaran yang dilakukan.</span>
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin A, B, C, D, H, I
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">A, B, C, D, H, I</span> akan ditegur oleh laboran atau guru yang sedang mengajar di laboraturium.
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">F</span>
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">F</span> akan dikenai sanksi teguran dan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">makanan/minuman</span> dilarang dibawa ke dalam laboraturium.
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b md:border-b-0 border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">G</span>
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">G</span> akan dikenai sanksi <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">wajib mengganti dalam bentuk alat (bukan uang) yang spesifikasinya sama.</span>
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Terus Menerus
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Bagi peserta didik yang sudah diberikan teguran namun tetap melanggar maka akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikoordinasikan dengan kesiswaan.</span>
+                  </p>
+                </div>
               </div>
-             </div>
+            </div>
           </div>
         </section>
         </>
