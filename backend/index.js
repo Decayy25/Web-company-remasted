@@ -60,6 +60,7 @@ const app = new Elysia()
 
             .post("/contact", async ({ body }) => {
                 try {
+                    await sendContactMail(body);
                     const result = await db.collection("contacts").insertOne({
                         name: body.name,
                         email: body.email,
