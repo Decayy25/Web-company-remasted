@@ -82,7 +82,7 @@ section#home .content {
     max-width: 48rem; 
 }
 
-/* About */
+
 body .about-section {
   background-color: #020617;
   padding: 6rem 2rem;   
@@ -98,12 +98,14 @@ body .about-section {
   gap: 2rem;
 }
 
+
 .about-left {
   display: grid;
   grid-template-columns: 1fr; 
   gap: 2rem; 
   justify-items: center;
 }
+
 
 @media (min-width: 1024px) {
   .about-container {
@@ -114,13 +116,6 @@ body .about-section {
   .about-left {
     grid-template-columns: repeat(2, 280px);
     gap: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-left {
-    grid-template-columns: repeat(2, 200px);
-    gap: 10rem;
   }
 }
 
