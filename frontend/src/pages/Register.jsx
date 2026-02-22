@@ -50,7 +50,7 @@ export default function Register() {
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen">
-        <img className="w-10 h-10 mb-4" src={img} alt="logo" />
+        <img className="mx-auto h-32 w-auto mb-4" src={img} alt="logo" />
 
         <div className="w-full bg-white rounded-lg shadow sm:max-w-md dark:bg-gray-800">
           <div className="p-6 space-y-4">
