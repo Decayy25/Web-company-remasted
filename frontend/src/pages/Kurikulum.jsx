@@ -37,7 +37,7 @@ export default function Kurikulum () {
                   </h3>
 
                   <ul className="space-y-2 text-gray-300 text-sm">
-                    ${mapel.map((item, index) => (
+                    {mapel.map((item, index) => (
                       <li
                         key={index}
                         className="flex items-center gap-2" 
@@ -59,7 +59,7 @@ export default function Kurikulum () {
                   </h3>
 
                   <ul className="space-y-2 text-gray-300 text-sm">
-                    ${jurusan.map((TKJ, index) => (
+                    {jurusan.map((TKJ, index) => (
                       <li
                         className="flex items-start gap-2" 
                         data-aos="fade-right" 
