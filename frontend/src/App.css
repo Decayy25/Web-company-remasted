@@ -95,14 +95,14 @@ body .about-section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 
 .about-left {
   display: grid;
   grid-template-columns: 1fr; 
-  gap: 2rem; 
+  gap: 3rem; 
   justify-items: center;
 }
 
@@ -110,12 +110,12 @@ body .about-section {
 @media (min-width: 1024px) {
   .about-container {
     flex-direction: row;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .about-left {
     grid-template-columns: repeat(2, 280px);
-    gap: 2rem;
+    gap: 3rem;
   }
 }
 
