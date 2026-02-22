@@ -25,8 +25,8 @@ export default function TataTertib () {
     return (
         <>
         <section>
-          <div className="container mx-auto px-6 py-20">
-            <h1 className="text-2xl font-bold text-white mb-10">Tata Tertib Sekolah</h1>
+          <div className="container mx-auto px-6 py-20 mt-10">
+            <h2 className="text-2xl font-bold text-white mb-10">Tata Tertib Sekolah</h2>
             <div>
               <h1 className="text-2xl font-semibold flex justify-center">Lab Komputer</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
