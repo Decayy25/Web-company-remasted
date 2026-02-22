@@ -4,7 +4,7 @@ import "../App.css";
 
 export default function Header({ setToken }) {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate(); // Fix typo: tambah ()
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -17,10 +17,8 @@ export default function Header({ setToken }) {
         <header className="bg-[#1a1b26] sticky top-0 z-50 shadow-md">
             <div className="container-head">
                 <div className="w-full mx-auto px-6 py-4 flex items-center justify-between">
-                    {/* Logo */}
                     <p className="text-2xl font-bold text-blue-400">SMarT Clk</p>
 
-                    {/* Tombol Hamburger (Hanya muncul di Mobile) */}
                     <button 
                         className="text-white lg:hidden block focus:outline-none"
                         onClick={() => setIsOpen(!isOpen)}
@@ -34,7 +32,6 @@ export default function Header({ setToken }) {
                         </svg>
                     </button>
 
-                    {/* Navigasi */}
                     <nav className={`
                         fixed lg:static top-[72px] left-0 w-full lg:w-auto 
                         bg-[#1a1b26] lg:bg-transparent

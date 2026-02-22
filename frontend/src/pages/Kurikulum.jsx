@@ -11,8 +11,8 @@ export default function Kurikulum () {
 
     return (
         <>
-        <section id="kurikulum" class="py-20 bg-[#020617]">
-            <h2 class="text-3xl font-bold text-center mb-10 text-white">Informasi Kurikulum</h2>
+        <section id="kurikulum" class="py-20 bg-[#020617] mt-10">
+            <h2 class="text-3xl font-bold text-center mb-10 mt-10 text-white">Informasi Kurikulum</h2>
             <div id="info-kurikulum" class="w-full grid grid-cols-1 md:grid-cols-6 gap-6 px-6">
                 <div class="md:col-span-3 bg-[#1a1b26] p-6 rounded-2xl border border-blue-500/30 shadow-lg" data-aos="fade-up">
                   <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">

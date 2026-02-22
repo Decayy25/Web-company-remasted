@@ -7,14 +7,9 @@ import "../App.css"
 export default function Home() {
     return (
         <>
-        {/* Section Home */}
         <section id="home" className="hero-height relative min-h-screen overflow-hidden bg-[#020617] flex items-center py-20 md:py-0">
-          {/* Background Glow */}
           <div className="absolute w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-indigo-500/20 blur-[80px] md:blur-[120px] rounded-full -top-20 -left-20"></div>
-          
           <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-
-          {/* Content Text */}
           <div className="content text-center md:text-left order-2 md:order-1">
             <h1 
               className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white" 
@@ -49,7 +44,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Image Container */}
           <div className="relative flex justify-center md:justify-end order-1 md:order-2" data-aos="fade-left">
               <img
                 src={heroImg}

@@ -84,7 +84,6 @@ export default function Contact({ setToken }) {
           onSubmit={handleSubmit}
           className="bg-[#020617] text-white border-2 border-[#51a2ff] p-8 rounded-lg"
         >
-          {/* Name */}
           <div className="mb-6">
             <label className="block text-gray-300 mb-2 font-semibold">
               Name
@@ -112,7 +111,6 @@ export default function Contact({ setToken }) {
             </p>
           </div>
 
-          {/* Message */}
           <div className="mb-6">
             <label className="block text-gray-300 mb-2 font-semibold">
               Message
