@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import "../App.css";
 
 export default function TataTertib () {
-  const [ activeIndex, setActiveIndex ] = useState(null);
 
   const lab_komputer_list = [
     { tata: "Jam Operasional", paragraf : 'Dimulai dari jam 07.00 - 16.30 WIB di hari Senin - Jumat, Bila ada Penggunaan diluar jam tersebut harap koordinasi dengan Laboran dan Wakasek Sarana & Prasarana.'},
@@ -35,18 +33,17 @@ export default function TataTertib () {
                 {lab_komputer_list.map((item, index) => (
                 <div
                   key={index}
-                  onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  className={`p-6 bg-[#1a1b26] rounded-xl border-t-2 transition-all duration-500 cursor-pointer 
-                    ${activeIndex === index ? 'border-2 border-[#51a2ff]' : 'border-[#51a2ff]'}`}
+                  className="p-6 bg-[#1a1b26] rounded-xl border-t-2 border-[#51a2ff] 
+                  flex flex-col justify-center items-center min-h-[160px] 
+                  transition-all duration-500 hover:border-2 cursor-pointer group"
                   data-aos="fade-up"
                   data-aos-duration="800"
                 >
-                  <h3 className={`text-lg font-semibold text-center select-none transition-all 
-                    ${activeIndex === index ? 'mb-2' : ''}`}>
+                  <h3 className="text-lg font-semibold text-center select-none group-hover:mb-2 transition-all">
                     {item.tata}
                   </h3>
 
-                  <div className={`${activeIndex === index ? 'block' : 'hidden'} w-full animate-fadeIn`}>
+                  <div className="hidden group-hover:block w-full animate-fadeIn">
                     <p className="text-gray-300 mt-2 text-center text-sm leading-relaxed">
                       {item.paragraf}
                     </p>
