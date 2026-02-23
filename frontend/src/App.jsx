@@ -38,8 +38,8 @@ export default function App() {
       })
       .catch(err => console.error("Error fetching account:", err));
   }, []);
-  const hideHeaderFooter = ["/login", "/register"];
 
+  const hideHeaderFooter = ["/login", "/register"];
   const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
   const isAuthPage = hideHeaderFooter.includes(currentPath);
 
