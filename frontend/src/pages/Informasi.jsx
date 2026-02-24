@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // 1. Tambahkan ini
+import { Link } from "react-router-dom";
 import "../App.css"
 import profile from "../assets/img/profile.png";
+import Ekstrakurikuler from "./Ekstrakurikuler";
 
 const members = [
-  { title: "Ekstrakurikuler", target: "", href:"/Ekstrakurikuler", aos: "fade-down-right", rotate: "-9deg", isInternal: true },
+  { title: "Ekstrakurikuler", target: "", href: Ekstrakurikuler, aos: "fade-down-right", rotate: "-9deg", isInternal: true },
   { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg", isInternal: false },
   { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg", isInternal: false },
   { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg", isInternal: false },
@@ -25,7 +26,7 @@ export default function Informasi () {
                             <div 
                                 className="about-box p-4 text-center mx-auto transition-transform duration-300"
                                 style={{
-                                    transform: hoverIndex === i
+                                    transform: hoverIndex === index
                                         ? `rotate(${member.rotate}) scale(1.05)`
                                         : "rotate(0deg)"
                                 }}
