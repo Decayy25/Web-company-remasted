@@ -1,61 +1,71 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // 1. Tambahkan ini
 import "../App.css"
 import profile from "../assets/img/profile.png";
 
 const members = [
-  { title: "Ekstrakurikuler", target: "", href:"/Ekstrakurikuler" , aos: "fade-down-right", rotate: "-9deg"},
-  { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg"},
-  { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg"},
-  { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg"},
+  { title: "Ekstrakurikuler", target: "", href:"/Ekstrakurikuler", aos: "fade-down-right", rotate: "-9deg", isInternal: true },
+  { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg", isInternal: false },
+  { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg", isInternal: false },
+  { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg", isInternal: false },
 ];
 
 export default function Informasi () {
     const [hoverIndex, setHoverIndex] = useState(null);
 
     return (
-    <>
-        <section id="informasi" className="about-section" >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">informasi Sekolah</h2>
-            <div className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]">
-                <div 
-                    className="about-left grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[10rem] !w-auto !h-auto justify-items-center" 
-                    id="about-left">
-                    {members.map((member, i) => (
-                        <a 
-                            key={i}
-                            href={member.href}
-                            target={member.target}
-                            rel={member.target === "_blank" ? "noopener noreferrer" : undefined}
-                            download={member.href.endsWith('.pdf') ? "" : undefined}
-                            data-aos={member.aos}
-                            className="block"
-                            onMouseEnter={() => setHoverIndex(i)}
-                            onMouseLeave={() => setHoverIndex(null)}
-                        >
+        <>
+            <section id="informasi" className="about-section" >
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">Informasi Sekolah</h2>
+                <div className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]">
+                    <div className="about-left grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[10rem] !w-auto !h-auto justify-items-center">
+                    
+                    {members.map((member, index) => {
+                        const BoxContent = (
                             <div 
                                 className="about-box p-4 text-center mx-auto transition-transform duration-300"
                                 style={{
-                                transform:
-                                  hoverIndex === i
-                                    ? `rotate(${member.rotate}) scale(1.05)`
-                                    : "rotate(0deg)"
+                                    transform: hoverIndex === i
+                                        ? `rotate(${member.rotate}) scale(1.05)`
+                                        : "rotate(0deg)"
                                 }}
                             >
                                 <div className="max-w-32 max-h-32 rounded-full overflow-hidden border-4 border-[#51a2ff] mx-auto mb-4">
-                                  <img 
-                                    src={profile}
-                                    alt={member.title}
-                                    className="w-full h-full object-cover"
-                                  />
+                                  <img src={profile} alt={member.title} className="w-full h-full object-cover" />
                                 </div>
-
-                                <h3 className="text-lg font-semibold">
-                                    {member.title}
-                                </h3>
+                                <h3 className="text-lg font-semibold">{member.title}</h3>
                             </div>
-                        </a>
-                    ))}
+                        );
+
+                        return member.isInternal ? (
+                            <Link 
+                                key={index} 
+                                to={member.href} 
+                                className="block"
+                                data-aos={member.aos}
+                                onMouseEnter={() => setHoverIndex(i)}
+                                onMouseLeave={() => setHoverIndex(null)}
+                            >
+                                {BoxContent}
+                            </Link>
+                        ) : (
+                            <a 
+                                key={i}
+                                href={member.href}
+                                target={member.target}
+                                rel="noopener noreferrer"
+                                download={member.href.endsWith('.pdf') ? "" : undefined}
+                                className="block"
+                                data-aos={member.aos}
+                                onMouseEnter={() => setHoverIndex(i)}
+                                onMouseLeave={() => setHoverIndex(null)}
+                            >
+                                {BoxContent}
+                            </a>
+                        );
+                    })}
                 </div>
+
 
                 <div 
                     className="w-full max-w-[460px] bg-[#1a1b26] border-[6px] 

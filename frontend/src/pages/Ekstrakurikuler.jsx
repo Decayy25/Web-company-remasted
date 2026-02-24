@@ -36,7 +36,7 @@ const eskul_list = [
 export default function Ekstrakurikuler () {
     return (
         <>
-        <section id="ekstrakulikuler" class="py-20 bg-[#020617]">
+        <section id="ekstrakulikuler" class="py-20 bg-[#020617] mt-10">
             <h2 class="text-3xl font-bold text-center mb-10 text-white">Ekstrakurikuler</h2>
             <div id="info-eskul" class="w-full grid grid-cols-1 md:grid-cols-6 gap-6 px-6">
                 {eskul_list.map((eskul) => (
