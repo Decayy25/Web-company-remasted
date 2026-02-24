@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css"
 import profile from "../assets/img/profile.png";
-import Ekstrakurikuler from "./Ekstrakurikuler";
 
 const members = [
-  { title: "Ekstrakurikuler", target: "", href: Ekstrakurikuler, aos: "fade-down-right", rotate: "-9deg", isInternal: true },
+  { title: "Ekstrakurikuler", target: "", href: "/Ekstrakurikuler", aos: "fade-down-right", rotate: "-9deg", isInternal: true },
   { title: "Informasi Jurusan", target: "_blank", href: "/jurusan.pdf", aos: "fade-down-left", rotate: "9deg", isInternal: false },
   { title: "Jadwal Pelajaran", target: "_blank", href: "/jadwal.pdf", aos: "fade-up-right", rotate: "-9deg", isInternal: false },
   { title: "Brosur PPDB 2024", target: "_blank", href: "/brosur.pdf", aos: "fade-up-left", rotate: "9deg", isInternal: false },
@@ -44,7 +43,7 @@ export default function Informasi () {
                                 to={member.href} 
                                 className="block"
                                 data-aos={member.aos}
-                                onMouseEnter={() => setHoverIndex(i)}
+                                onMouseEnter={() => setHoverIndex(index)}
                                 onMouseLeave={() => setHoverIndex(null)}
                             >
                                 {BoxContent}
@@ -58,7 +57,7 @@ export default function Informasi () {
                                 download={member.href.endsWith('.pdf') ? "" : undefined}
                                 className="block"
                                 data-aos={member.aos}
-                                onMouseEnter={() => setHoverIndex(i)}
+                                onMouseEnter={() => setHoverIndex(index)}
                                 onMouseLeave={() => setHoverIndex(null)}
                             >
                                 {BoxContent}
