@@ -51,7 +51,7 @@ export default function Informasi () {
                             </Link>
                         ) : (
                             <a 
-                                key={i}
+                                key={index}
                                 href={member.href}
                                 target={member.target}
                                 rel="noopener noreferrer"
