@@ -44,7 +44,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative flex justify-center md:justify-end order-1 md:order-2" data-aos="fade-left">
+          <div 
+            className="relative flex justify-center md:justify-end order-1 md:order-2" 
+            data-aos="fade-left"
+            data-aos-duration="800"
+            >
               <img
                 src={heroImg}
                 alt="Hero Image"
