@@ -38,12 +38,12 @@ export default function Ekstrakurikuler () {
         <>
         <section id="ekstrakulikuler" class="py-20 bg-[#020617] mt-10">
             <h2 class="text-3xl font-bold text-center mb-10 text-white">Ekstrakurikuler</h2>
-            <div id="info-eskul" class="w-full grid grid-cols-1 md:grid-cols-6 gap-6 px-6">
+            <div id="info-eskul" class="flex flex-wrap justify-center gap-6 px-6 w-full">
                 {eskul_list.map((eskul) => (
                     <a href={eskul.href} target="_blank" className="block" data-aos="fade-up" data-aos-delay="8000">
                         <div className="eskul-box bg-[#1a1b26] p-6 text-center rounded-lg hover:scale-105">
                             <img src={eskul.img} alt={eskul.eks} className="w-full h-40 object-cover rounded-full mb-4" />
-                            <h2 className="text-lg font-semibold">{eskul.eks}</h2                   >
+                            <h2 className="text-lg font-semibold">{eskul.eks}</h2>
                         </div>
                     </a>
                 ))}

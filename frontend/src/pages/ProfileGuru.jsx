@@ -38,7 +38,7 @@ const guru_list = [
 export default function ProfileGuru () {
     return (
         <>
-        <section id="profil-guru" class="py-20 bg-[#020617]">
+        <section id="profil-guru" class="py-20 bg-[#020617] mt-10">
             <h2 class="text-3xl font-bold text-center mb-10 text-white">Profil Guru</h2>
             <h3 class="text-2x1 font-bold text-center mb-10 text-white">Berikut Beberapa Guru Yang Kami Masukan</h3>
             <div id="info-guru" class="flex flex-wrap justify-center gap-6 px-6 w-full">
