@@ -74,7 +74,7 @@ export default function Contact({ setToken }) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#020617]">
+    <section id="contact" className="py-20 bg-[#020617] mt-10">
       <h2 className="text-3xl font-bold text-center mb-10 text-white">
         Contact Us
       </h2>
