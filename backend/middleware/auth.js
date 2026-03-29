@@ -32,12 +32,10 @@ export async function register(body) {
     });
 
     console.log("Register:", body.email);
-    console.log("Password:", body.password);
 
     return Response.json({ message: "Register berhasil" });
 
   } catch (err) {
-    console.error("Error during registration:", err);
     return Response.json(
       { error: err.message },
       { status: 500 }

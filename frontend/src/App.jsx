@@ -22,7 +22,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function App() {
-
   const [account, setAccount] = useState([]);
   const location = useLocation();
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -33,7 +32,7 @@ export default function App() {
     fetch(`${import.meta.env.VITE_API_URL}/api/accounts`)
       .then(res => res.json())
       .then(data => { 
-        setAccount(data);
+        setAccount(data || account);
         setTimeout(() => AOS.refresh(), 100);
       })
       .catch(err => console.error("Error fetching account:", err));
@@ -62,7 +61,6 @@ export default function App() {
         <Route path="/Kurikulum" element={<Kurikulum />} />
         <Route path="/contact" element={token ? <Contact token={token} /> : <Navigate to="/login" />} />
       </Routes>
-
 
       {!isAuthPage && <Footer />}
     </>
