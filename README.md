@@ -1,7 +1,7 @@
-# 🚀 Web Portal Perusahaan - MERB Stack
+# 🚀 Web Portal Sekolah - MERB Stack
 **MongoDB, ElysiaJS, React, Bun**
 
-Proyek portal web perusahaan yang mengintegrasikan sistem autentikasi keamanan tinggi dan formulir kontak dinamis.
+Proyek portal web sekolah yang mengintegrasikan sistem autentikasi keamanan tinggi dan formulir kontak dinamis.
 
 ## 🛠️ Tech Stack
 
@@ -23,10 +23,10 @@ web-company-merb-stack/
 │   │   ├── components/       # Komponen Reusable
 │   │   │   ├── Header.jsx    # Navbar
 │   │   │   ├── Footer.jsx    # Footer
-│   │   │   ├── Home.jsx      # Konten Beranda
-│   │   │   └── Contact.jsx   # Form Contact (Auto-email)
+│   │   │   └── Home.jsx      # Konten Beranda
 │   │   ├── pages/            # Halaman Utama
 │   │   │   ├── Login.jsx     # Login Page (No Header/Footer)
+|   |   |   ├── Contact.jsx   # Form Contact (Auto-email)
 │   │   │   ├── Informasi.jsx
 │   │   │   ├── VisiMisi.jsx
 │   │   │   └── ... (Halaman lainnya)

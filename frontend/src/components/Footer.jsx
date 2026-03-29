@@ -1,4 +1,4 @@
-import { useEffect }  from "react";
+import { useEffect,useEffect, useState }  from "react";
 import feather from "feather-icons"
 import Logo from "../assets/img/profile.png";
 
@@ -7,7 +7,7 @@ const Facebook = "https://www.facebook.com/profile.php?id=100080470501420&ref=_i
 const YouTube  ="https://www.youtube.com/c/SMKMaarifTerpaduCicalengka119";
 
 export default function Footer() {
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     feather.replace();
   }, []);
@@ -38,22 +38,22 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <a href="/BantuanAkademik" className="hover:text-[#51a2ff]">
+              <a href="/BantuanAkademik" className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)}>
                 Bantuan Akademik
               </a>
             </li>
             <li>
-              <a href="/Kurikulum" className="hover:text-[#51a2ff]">
+              <a href="/Kurikulum" className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)}>
                 Informasi Kurikulum
               </a>
             </li>
             <li>
-              <a href="/TataTertib" className="hover:text-[#51a2ff]">
+              <a href="/TataTertib" className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)}>
                 Tata Tertib Sekolah
               </a>
             </li>
             <li>
-              <a href="/ProfileGuru" className="hover:text-[#51a2ff]">
+              <a href="/ProfileGuru" className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)}>
                 Profil Guru
               </a>
             </li>
@@ -71,7 +71,7 @@ export default function Footer() {
                 href={Istagram}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#51a2ff]"
+                className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)
               >
                 <i data-feather="instagram"></i>
               </a>
@@ -81,7 +81,7 @@ export default function Footer() {
                 href={Facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#51a2ff]"
+                className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)
               >
                 <i data-feather="facebook"></i>
               </a>
@@ -91,7 +91,7 @@ export default function Footer() {
                 href={YouTube}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#51a2ff]"
+                className="hover:text-[#51a2ff]" onClick={() => setIsOpen(false)
               >
                 <i data-feather="youtube"></i>
               </a>
