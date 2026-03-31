@@ -36,9 +36,9 @@ const eskul_list = [
 export default function Ekstrakurikuler () {
     return (
         <>
-        <section id="ekstrakulikuler" class="py-20 bg-[#020617] mt-10">
-            <h2 class="text-3xl font-bold text-center mb-10 text-white">Ekstrakurikuler</h2>
-            <div id="info-eskul" class="flex flex-wrap justify-center gap-6 px-6 w-full">
+        <section id="ekstrakulikuler" className="py-20 bg-[#020617] mt-10">
+            <h2 className="text-3xl font-bold text-center mb-10 text-white">Ekstrakurikuler</h2>
+            <div id="info-eskul" className="flex flex-wrap justify-center gap-6 px-6 w-full">
                 {eskul_list.map((eskul) => (
                     <a href={eskul.href} target="_blank" className="block" data-aos="fade-up" data-aos-delay="8000">
                         <div className="eskul-box bg-[#1a1b26] p-6 text-center rounded-lg hover:scale-105">

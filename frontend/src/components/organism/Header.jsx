@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../App.css";
+import "../../App.css";
 
 export default function Header({ setToken }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function Header({ setToken }) {
                         px-6 py-8 lg:p-0
                         ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100"}
                     `}>
-                        <a href="/" className="text-white hover:text-blue-500 font-medium" onClick={() => setIsOpen(false)}>Home</a>
+                        <Link to="/" className="text-white hover:text-blue-500 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
                         <a href="#informasi" className="text-white hover:text-blue-500 font-medium" onClick={() => setIsOpen(false)}>Informasi</a>
                         <a href="#VisiMisi" className="text-white hover:text-blue-500 font-medium" onClick={() => setIsOpen(false)}>Visi-Misi</a>
                         <Link to="/Contact" className="text-white hover:text-blue-500 font-medium" onClick={() => setIsOpen(false)}>Contact</Link>

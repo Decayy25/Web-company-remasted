@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import Home from "./components/Home.jsx";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "./components/organism/Header.jsx";
+import Footer from "./components/organism/Footer.jsx";
 
 import Informasi from './pages/Informasi.jsx';
 import VisiMisi from './pages/VisiMisi.jsx';

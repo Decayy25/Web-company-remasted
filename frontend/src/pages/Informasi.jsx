@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "../App.css"
 import profile from "../assets/img/profile.png";
 
@@ -15,7 +14,7 @@ export default function Informasi () {
 
     return (
         <>
-            <section id="informasi" className="about-section" >
+            {/* <section id="informasi" className="about-section" >
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center" data-aos="fade-up">Informasi Sekolah</h2>
                 <div className="about-container flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[10rem]">
                     <div className="about-left grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[10rem] !w-auto !h-auto justify-items-center">
@@ -94,7 +93,18 @@ export default function Informasi () {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> */}
+
+        {members.map((item, index) => (
+            <InfoBox
+                key={index}
+                title={item.title}
+                img={profile}
+                rotate={item.rotate}
+                active={hoverIndex === index}
+                onHover={() => setHoverIndex(index)}
+            />
+        ))}
     </>
     )
 }
