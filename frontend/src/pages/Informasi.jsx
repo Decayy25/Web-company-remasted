@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../App.css"
 import profile from "../assets/img/profile.png";
+import InfoBox from "../components/molecules/InfoBox";
 
 const members = [
   { title: "Ekstrakurikuler", target: "", href: "/Ekstrakurikuler", aos: "fade-down-right", rotate: "-9deg", isInternal: true },
