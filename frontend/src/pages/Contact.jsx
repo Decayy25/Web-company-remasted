@@ -1,17 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function Contact({ setToken }) {
+export default function Contact() {
   const [userEmail, setUserEmail] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const emailYangLogin = localStorage.getItem("userEmail");
-
-    if (!emailYangLogin) {
-      setUserEmail("Not Logged In");
-      setLoading(false);
-      return;
-    }
 
     fetch(`${import.meta.env.VITE_API_URL}/api/me?email=${emailYangLogin}`)
       .then(res => res.json())

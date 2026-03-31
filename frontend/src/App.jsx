@@ -52,13 +52,13 @@ export default function App() {
         <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} />
         
 
-        <Route path="/Informasi" element={<Informasi />} />
-        <Route path="/VisiMisi" element={<VisiMisi />} />
-        <Route path="/TataTertib" element={<TataTertib />} />
-        <Route path="/BantuanAkademik" element={<BantuanAkademik />} />
-        <Route path="/Ekstrakurikuler" element={<Ekstrakurikuler />} />
-        <Route path="/ProfileGuru" element={<ProfileGuru />} />
-        <Route path="/Kurikulum" element={<Kurikulum />} />
+        <Route path="/informasi" element={<Informasi />} />
+        <Route path="/visimisi" element={<VisiMisi />} />
+        <Route path="/tatatertib" element={<TataTertib />} />
+        <Route path="/bantuanakademik" element={<BantuanAkademik />} />
+        <Route path="/ekstrakurikuler" element={<Ekstrakurikuler />} />
+        <Route path="/profileguru" element={<ProfileGuru />} />
+        <Route path="/kurikulum" element={<Kurikulum />} />
         <Route path="/contact" element={token ? <Contact token={token} /> : <Navigate to="/login" />} />
       </Routes>
 
