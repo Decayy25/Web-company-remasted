@@ -1,7 +1,7 @@
 import { useEffect }  from "react";
 import feather from "feather-icons"
 import { Link } from "react-router-dom";
-import Logo from "../../assets/img/profile.png";
+import Logo from "../assets/img/profile.png";
 
 const Istagram = "https://www.instagram.com/smart_clk/";
 const Facebook = "https://www.facebook.com/profile.php?id=100080470501420&ref=_ig_profile_ac";
