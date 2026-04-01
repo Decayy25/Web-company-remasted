@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../assets/img/profile.png";
+import AuthForm from "../components/organism/AuthForm";
+import Card from "../components/atoms/Card";
+import SectionLayout from "../components/organism/SectionLayout";
+import Title from "../components/atoms/Title";
 
 export default function Register() {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -47,80 +50,55 @@ export default function Register() {
     }
   };
 
+  const fields = [
+    {
+      label: "Username",
+      name: "username",
+      type: "text",
+      value: formData.username,
+      onChange: handleChange,
+      placeholder: "Enter your username",
+      required: true
+    },
+    {
+      label: "Email address",
+      name: "email",
+      type: "email",
+      value: formData.email,
+      onChange: handleChange,
+      placeholder: "Enter your email",
+      required: true
+    },
+    {
+      label: "Password",
+      name: "password",
+      type: "password",
+      value: formData.password,
+      onChange: handleChange,
+      placeholder: "Enter your password",
+      required: true
+    }
+  ];
+
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen">
-        <img className="mx-auto h-32 w-auto mb-4" src={img} alt="logo" />
-
-        <div className="w-full bg-white rounded-lg shadow sm:max-w-md dark:bg-gray-800">
-          <div className="p-6 space-y-4">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Create an account
-            </h2>
-
-            <form className="space-y-4" onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="username" className="block mb-2 text-sm font-medium">
-                  username
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  required
-                  value={formData.username}
-                  onChange={handleChange}
-                  className="w-full p-2.5 rounded-lg bg-[#1a1b26] text-white"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium">
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-2.5 rounded-lg bg-[#1a1b26] text-white"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full p-2.5 rounded-lg bg-[#1a1b26] text-white"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-2.5 rounded-lg"
-              >
-                Create an account
-              </button>
-
-              <p className="text-sm text-gray-400">
-                Already have an account?{" "}
-                <span
-                  className="text-blue-400 cursor-pointer"
-                  onClick={() => navigate("/login")}
-                >
-                  Login here
-                </span>
-              </p>
-            </form>
+    <SectionLayout id="register" title="Create an account" subtitle="Daftar untuk mendapatkan akses pengguna baru">
+      <div className="flex justify-center">
+        <Card className="w-full max-w-md p-8 border border-blue-500/30">
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <img alt="Register" src={img} className="h-28 w-28 rounded-full object-cover" />
+            <Title center>Register</Title>
           </div>
-        </div>
+
+          <AuthForm fields={fields} onSubmit={handleSubmit} buttonText="Create an account" />
+
+          <p className="text-sm text-gray-300 mt-6 text-center">
+            Already have an account?{' '}
+            <Link to="/login" className="text-blue-400 hover:underline">
+              Login here
+            </Link>
+          </p>
+        </Card>
       </div>
-    </section>
+    </SectionLayout>
   );
 }

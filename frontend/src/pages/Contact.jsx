@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import PageTemplate from "../components/templates/PageTemplate";
+import SectionLayout from "../components/organism/SectionLayout";
+import Input from "../components/atoms/Input";
+import TextArea from "../components/atoms/TextArea";
+import Button from "../components/atoms/Button";
 
-export default function Contact() {
+export default function Contact({ setToken }) {
   const [userEmail, setUserEmail] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -10,7 +15,6 @@ export default function Contact() {
     fetch(`${import.meta.env.VITE_API_URL}/api/me?email=${emailYangLogin}`)
       .then(res => res.json())
       .then(data => {
-        console.log("USER DATA:", data);
         setUserEmail(data?.email || "Not Logged In");
         setLoading(false);
       })
@@ -47,8 +51,6 @@ export default function Contact() {
 
       const data = await res.json();
 
-      console.log("SERVER RESPONSE:", data);
-
       if (!res.ok) {
         alert("Server error ❌");
         return;
@@ -60,7 +62,6 @@ export default function Contact() {
       } else {
         alert("Gagal kirim ❌");
       }
-
     } catch (err) {
       console.error("Submit error:", err);
       alert("Server tidak terhubung!");
@@ -68,65 +69,44 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#020617] mt-10">
-      <h2 className="text-3xl font-bold text-center mb-10 text-white">
-        Contact Us
-      </h2>
+    <PageTemplate setToken={setToken}>
+      <SectionLayout id="contact" title="Contact Us">
+        <div className="max-w-3xl mx-auto px-6">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-[#020617] text-white border-2 border-[#51a2ff] p-8 rounded-lg"
+          >
+            <Input label="Name" name="name" placeholder="Nama kamu" required />
 
-      <div className="max-w-3xl mx-auto px-6">
-        <form
-          onSubmit={handleSubmit}
-          className="bg-[#020617] text-white border-2 border-[#51a2ff] p-8 rounded-lg"
-        >
-          <div className="mb-6">
-            <label className="block text-gray-300 mb-2 font-semibold">
-              Name
-            </label>
-            <input
-              name="name"
-              required
-              className="w-full px-4 py-2 border rounded-lg text-white"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-300 mb-2 font-semibold">
-              Email Anda
-            </label>
-            <input
+            <Input
+              label="Email Anda"
+              name="email"
               value={userEmail}
               readOnly
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-gray-400"
+              className="bg-gray-800 border-gray-600 text-gray-400"
             />
             <p className="text-xs text-blue-400 mt-1">
               {loading
                 ? "Mengambil email akun..."
                 : "*Email otomatis dari akun login"}
             </p>
-          </div>
 
-          <div className="mb-6">
-            <label className="block text-gray-300 mb-2 font-semibold">
-              Message
-            </label>
-            <textarea
+            <TextArea
+              label="Message"
               name="message"
-              rows="5"
+              rows={6}
+              placeholder="Tulis pesan..."
               required
-              className="w-full px-4 py-2 border rounded-lg text-[#D1D5DB]"
             />
-          </div>
 
-          <div className="text-center">
-            <button
-              disabled={loading}
-              className="bg-blue-500 px-6 py-2 rounded-lg hover:bg-blue-600 transition"
-            >
-              {loading ? "Loading..." : "Send Message"}
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+            <div className="text-center">
+              <Button type="submit" full disabled={loading}>
+                {loading ? "Loading..." : "Send Message"}
+              </Button>
+            </div>
+          </form>
+        </div>
+      </SectionLayout>
+    </PageTemplate>
   );
 }

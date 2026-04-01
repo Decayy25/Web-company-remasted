@@ -4,9 +4,12 @@ export default function Input (props) {
         name,
         type = "text",
         value,
+        defaultValue,
         onChange,
         placeholder,
-        readOnly = false
+        readOnly = false,
+        className = "",
+        ...rest
     } = props;
 
     return (
@@ -21,10 +24,12 @@ export default function Input (props) {
                 type={type}
                 name={name}
                 value={value}
+                defaultValue={defaultValue}
                 onChange={onChange}
                 placeholder={placeholder}
                 readOnly={readOnly}
-                className="w-full px-4 py-2 rounded-lg bg-[#1a1b26] text-white border border-gray-600"
+                className={`w-full px-4 py-2 rounded-lg bg-[#1a1b26] text-white border border-gray-600 ${className}`}
+                {...rest}
             />
         </div>
     )

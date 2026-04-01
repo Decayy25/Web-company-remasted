@@ -4,7 +4,8 @@ export default function Button(props) {
     onClick, 
     type = "button",
     variant = "primary",
-    full = false 
+    full = false,
+    className 
   } = props;
 
   const base = "px-6 py-2 rounded-lg transition";
@@ -18,7 +19,7 @@ export default function Button(props) {
     <button
       type={type}
       onClick={onClick}
-      className={`${base} ${variants[variant]} ${full ? "w-full" : ""}`}
+      className={`${base} ${variants[variant]} ${full ? "w-full" : ""} ${className}`}
     >
       {children}
     </button>
