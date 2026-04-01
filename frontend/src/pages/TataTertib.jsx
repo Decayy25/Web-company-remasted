@@ -1,8 +1,7 @@
-import PageTemplate from "../components/templates/PageTemplate";
-import SectionLayout from "../components/organism/SectionLayout";
-import Card from "../components/atoms/Card";
+import { Link } from "react-router-dom";
+import "../App.css";
 
-export default function TataTertib({ setToken }) {
+export default function TataTertib () {
 
   const lab_komputer_list = [
     { tata: "Jam Operasional", paragraf : 'Dimulai dari jam 07.00 - 16.30 WIB di hari Senin - Jumat, Bila ada Penggunaan diluar jam tersebut harap koordinasi dengan Laboran dan Wakasek Sarana & Prasarana.'},
@@ -24,70 +23,128 @@ export default function TataTertib({ setToken }) {
 ];
 
     return (
-      <PageTemplate setToken={setToken}>
-        <SectionLayout id="tatatertib" title="Tata Tertib Sekolah">
-          <div className="grid gap-10">
+        <>
+        <section>
+          <div className="container mx-auto px-6 py-20 mt-10">
+            <h2 className="text-2xl font-bold text-white mb-10">Tata Tertib Sekolah</h2>
             <div>
-              <h3 className="text-2xl font-semibold text-center text-white mb-8">Lab Komputer</h3>
+              <h1 className="text-2xl font-semibold flex justify-center">Lab Komputer</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 {lab_komputer_list.map((item, index) => (
-                  <Card key={index} className="transition-transform duration-500 hover:scale-105">
-                    <h4 className="text-lg font-semibold text-center text-white mb-3">{item.tata}</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">{item.paragraf}</p>
-                  </Card>
+                <div
+                  key={index}
+                  className="p-6 bg-[#1a1b26] rounded-xl border-t-2 border-[#51a2ff] 
+                  flex flex-col justify-center items-center min-h-[160px] 
+                  transition-all duration-500 hover:border-2 cursor-pointer group"
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                >
+                  <h3 className="text-lg font-semibold text-center select-none group-hover:mb-2 transition-all">
+                    {item.tata}
+                  </h3>
+
+                  <div className="hidden group-hover:block w-full animate-fadeIn">
+                    <p className="text-gray-300 mt-2 text-center text-sm leading-relaxed">
+                      {item.paragraf}
+                    </p>
+                  </div>
+                </div>
                 ))}
+              </div>
+
+              <h2 className="text-2xl mt-20 flex justify-center font-semibold p-8">TIDAK DIPERKENANKAN</h2>
+              <div className="bg-[#1a1b26] border-[3px] border-[#51a2ff] rounded-[28px] shadow-xl p-6 md:p-8" 
+                id="not-allowed" 
+                data-aos="flip-right" 
+                data-aos-duration="2000" 
+                data-aos-easing="ease-out-cubic"
+                >
+                  <div className="shadow-lg rounded-lg overflow-x-auto">
+                    <table className="min-w-full">
+                      <tbody>
+                        {not_allowed_list.map((not_allow) => (
+                          <tr key={not_allow.id} className="border-b border-gray-700/50 last:border-0">
+                              <td className="py-4 px-4 hex-text font-semibold w-1/3 align-top">
+                              {not_allow.rule}
+                              </td>
+                              <td className="py-4 px-4 text-gray-300 w-2/3 align-top italic">
+                              {not_allow.desc}
+                              </td>
+                            </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
               </div>
             </div>
 
-            <Card className="border border-blue-500/30 overflow-x-auto">
-              <h3 className="text-xl font-semibold text-white mb-6">TIDAK DIPERKENANKAN</h3>
-              <table className="min-w-full">
-                <tbody>
-                  {not_allowed_list.map((item) => (
-                    <tr key={item.id} className="border-b border-gray-700/50 last:border-0">
-                      <td className="py-4 px-4 font-semibold w-1/3 align-top text-white">{item.rule}</td>
-                      <td className="py-4 px-4 text-gray-300 w-2/3 align-top italic">{item.desc}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Card>
+            <div className="mt-10">
+              <h2 className="text-2xl font-semibold flex justify-center mb-10">Pelanggaran</h2>
+              <div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-[#1a1b26] border-[3px] border-[#51a2ff] rounded-[28px] overflow-hidden shadow-xl"
+                data-aos="flip-left" 
+                data-aos-duration="2000" 
+                data-aos-easing="ease-out-cubic"
+              >
 
-            <Card className="border border-blue-500/30">
-              <h3 className="text-xl font-semibold text-white text-center mb-10">Pelanggaran</h3>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Ringan</h4>
-                    <p className="text-gray-300 text-sm mt-3">Pelanggaran ringan terhadap tata tertib akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan teguran.</span></p>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Berat</h4>
-                    <p className="text-gray-300 text-sm mt-3">Pelanggaran kategori berat akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan sanksi tertentu sesuai dengan jenis pelanggaran yang dilakukan.</span></p>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Poin A, B, C, D, H, I</h4>
-                    <p className="text-gray-300 text-sm mt-3">Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">A, B, C, D, H, I</span> akan ditegur oleh laboran atau guru yang sedang mengajar di laboratorium.</p>
-                  </div>
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Ringan
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran ringan terhadap tata tertib akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan teguran.</span>
+                  </p>
                 </div>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Poin F</h4>
-                    <p className="text-gray-300 text-sm mt-3">Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">F</span> akan dikenai sanksi teguran dan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">makanan/minuman</span> dilarang dibawa ke dalam laboratorium.</p>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Poin G</h4>
-                    <p className="text-gray-300 text-sm mt-3">Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">G</span> akan dikenai sanksi wajib mengganti dalam bentuk alat (bukan uang) yang spesifikasinya sama.</p>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">Pelanggaran Terus Menerus</h4>
-                    <p className="text-gray-300 text-sm mt-3">Bagi peserta didik yang sudah diberikan teguran namun tetap melanggar maka akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikoordinasikan dengan kesiswaan.</span></p>
-                  </div>
+
+    
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Berat
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran kategori berat akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikenakan sanksi tertentu sesuai dengan jenis pelanggaran yang dilakukan.</span>
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin A, B, C, D, H, I
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">A, B, C, D, H, I</span> akan ditegur oleh laboran atau guru yang sedang mengajar di laboraturium.
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b border-[#51a2ff]/30">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">F</span>
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">F</span> akan dikenai sanksi teguran dan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">makanan/minuman</span> dilarang dibawa ke dalam laboraturium.
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12 border-b md:border-b-0 border-[#51a2ff]/30 md:border-r">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Poin <span className="underline decoration-[#51a2ff] underline-offset-8">G</span>
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Pelanggaran terhadap poin <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">G</span> akan dikenai sanksi <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">wajib mengganti dalam bentuk alat (bukan uang) yang spesifikasinya sama.</span>
+                  </p>
+                </div>
+
+                <div className="py-8 px-6 md:py-10 md:px-12">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Pelanggaran Terus Menerus
+                  </h3>
+                  <p className="text-base md:text-lg mt-4 font-normal text-gray-300">
+                    Bagi peserta didik yang sudah diberikan teguran namun tetap melanggar maka akan <span className="underline decoration-[#51a2ff] underline-offset-8 text-white">dikoordinasikan dengan kesiswaan.</span>
+                  </p>
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
-        </SectionLayout>
-      </PageTemplate>
-    );
+        </section>
+        </>
+    )
 };
