@@ -63,7 +63,7 @@ bun install
 bun run index.js
 ```
 
-## Menjalakna Frontend
+## Menjalankan Frontend
 bash
 ```
 cd frontend
