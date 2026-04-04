@@ -16,7 +16,7 @@ export default function Header({ setToken }) {
     const closeMenu = () => setIsOpen(false);
 
     return (
-        <header className="bg-[#1a1b26] border-b border-gray-800 sticky top-0 z-50 shadow-md">
+        <header className="bg-[#1a1b26] border-b sticky top-0 z-50 shadow-md">
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="text-2xl font-bold text-blue-400 tracking-wider">
