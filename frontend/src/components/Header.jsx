@@ -33,7 +33,7 @@ export default function Header({ setToken }) {
                     </button>
 
                     <nav className={`
-                        fixed lg:static top-[72px] left-0 w-full lg:w-auto 
+                        fixed lg:static left-0 w-full lg:w-auto 
                         bg-[#1a1b26] lg:bg-transparent
                         flex flex-col lg:flex-row items-center gap-6 
                         transition-all duration-300 ease-in-out

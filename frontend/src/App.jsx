@@ -27,7 +27,7 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: false });
+    AOS.init({ duration: 800, once: true });
     
     fetch(`${import.meta.env.VITE_API_URL}/api/accounts`)
       .then(res => res.json())
