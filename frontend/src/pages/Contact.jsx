@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Contact() {
   const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,6 +13,7 @@ export default function Contact() {
       .then(data => {
         console.log("USER DATA:", data);
         setUserEmail(data?.email || "Not Logged In");
+        setUserName(data?.name);
         setLoading(false);
       })
       .catch(err => {
@@ -24,12 +26,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!userEmail || userEmail === "Not Logged In") {
+    if (!userEmail || userEmail === "Not Logged In" && !userName || userName === "Not Logged In") {
       alert("Silakan login dulu!");
       return;
     }
 
-    const name = e.target.name.value;
     const message = e.target.message.value;
 
     try {
@@ -39,7 +40,7 @@ export default function Contact() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          name,
+          name: userName,
           email: userEmail,
           message
         })
@@ -83,10 +84,15 @@ export default function Contact() {
               Name
             </label>
             <input
-              name="name"
-              required
+              value={userName}
+              readOnly
               className="w-full px-4 py-2 border rounded-lg text-white"
             />
+            <p className="text-xs text-blue-400 mt-1">
+              {loading
+                ? "Mengambil email akun..."
+                : "*Email otomatis dari akun login"}
+            </p>
           </div>
 
           <div className="mb-6">
