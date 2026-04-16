@@ -1,4 +1,5 @@
 # 🚀 Web Portal Sekolah - MERB Stack
+
 **MongoDB, ElysiaJS, React, Bun**
 
 Proyek portal web sekolah yang mengintegrasikan sistem autentikasi keamanan tinggi dan formulir kontak dinamis.
@@ -49,6 +50,7 @@ web-company-merb-stack/
 ## Konfigurasi Environment
 
 .env
+
 ```
 MONGODB_URI=mongodb://localhost:27017/db_company
 JWT_SECRET=kode_rahasia_anda_disini
@@ -56,7 +58,9 @@ PORT=5050
 ```
 
 ## Menjalankan Backend
+
 bash
+
 ```
 cd backend
 bun install
@@ -64,7 +68,9 @@ bun run index.js
 ```
 
 ## Menjalankan Frontend
+
 bash
+
 ```
 cd frontend
 bun install
@@ -72,6 +78,7 @@ bun run dev
 ```
 
 ## Dokumentasi API
+
 ```
 Fitur       Method          Endpoint                    Keterangan
 Register    POST            /api/auth/register          Membuat akun baru
@@ -80,3 +87,10 @@ Profile     GET             /api/me                     Ambil data user aktif (q
 Contact     POST            /api/contact                Simpan pesan ke DB
 Admin       GET             /api/accounts               Lihat semua akun terdaftar
 ```
+
+Kode Warna Deskripsi Kesan
+#020617 Hitam kebiruan sangat gelap Elegan, futuristik, profesional
+#1a1b26 Biru gelap keabu-abuan Modern, tenang
+#51a2ff Biru cerah Teknologi, kepercayaan, interaktif
+#D1D5DB Abu-abu terang Netral, bersih, mudah dibaca
+
