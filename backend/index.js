@@ -64,7 +64,7 @@ const app = new Elysia()
                     }
 
                     return {
-                        name: user.name,
+                        name: user.username,
                         email: user.email
                     };
                 } catch (error) {
