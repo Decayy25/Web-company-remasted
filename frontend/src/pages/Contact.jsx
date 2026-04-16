@@ -87,7 +87,7 @@ export default function Contact() {
             <input
               value={userName}
               readOnly
-              className="w-full px-4 py-2 border rounded-lg text-white"
+              className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-gray-400"
             />
             <p className="text-xs text-blue-400 mt-1">
               {loading
