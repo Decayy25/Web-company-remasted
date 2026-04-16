@@ -51,8 +51,22 @@ const app = new Elysia()
 
             .get("/me", async ({ query }) => {
                 try {
-                    const user = await usersCollection.findOne({ email: query.email });
-                    return user || { error: "User tidak ditemukan" };
+                    if (!query.email) {
+                        return { error: "Email diperlukan" };
+                    }
+
+                    const user = await usersCollection.findOne({ 
+                        email: query.email 
+                    });
+
+                    if (!user) {
+                        return { error: "User tidak ditemukan" };
+                    }
+
+                    return {
+                        name: user.name,
+                        email: user.email
+                    };
                 } catch (error) {
                     return { error: error.message };
                 }

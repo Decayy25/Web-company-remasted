@@ -13,12 +13,13 @@ export default function Contact() {
       .then(data => {
         console.log("USER DATA:", data);
         setUserEmail(data?.email || "Not Logged In");
-        setUserName(data?.name);
+        setUserName(data?.name || "Not Logged In");
         setLoading(false);
       })
       .catch(err => {
         console.error("Fetch error:", err);
         setUserEmail("Not Logged In");
+        setUserName("Not Logged In")
         setLoading(false);
       });
   }, []);
@@ -26,7 +27,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!userEmail || userEmail === "Not Logged In" && !userName || userName === "Not Logged In") {
+    if (!userEmail ||!userName ||userEmail === "Not Logged In" ||userName === "Not Logged In") {
       alert("Silakan login dulu!");
       return;
     }
