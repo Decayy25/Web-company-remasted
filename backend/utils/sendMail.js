@@ -69,7 +69,7 @@ export async function sendContactMail({ name, email, message }) {
             subject: "Pesan Baru dari SMArT CLK",
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                    <h3>Pesan Baru dari Website</h3>
+                    <h3>Pesan Baru dari SMArT CLK</h3>
                     <p><b>Nama:</b> ${safeName}</p>
                     <p><b>Email Pengunjung:</b> ${safeEmail}</p>
                     <p><b>Pesan:</b></p>
