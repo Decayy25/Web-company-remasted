@@ -1,6 +1,6 @@
 import { useEffect }  from "react";
 import feather from "feather-icons"
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Logo from "../assets/img/profile.png";
 
 const Istagram = "https://www.instagram.com/smart_clk/";
@@ -39,24 +39,24 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <Link to="/BantuanAkademik" className="hover:text-[#51a2ff]">
+              <Navigate to="/BantuanAkademik" className="hover:text-[#51a2ff]">
                 Bantuan Akademik
-              </Link>
+              </Navigate>
             </li>
             <li>
-              <Link to="/Kurikulum" className="hover:text-[#51a2ff]">
+              <Navigate to="/Kurikulum" className="hover:text-[#51a2ff]">
                 Informasi Kurikulum
-              </Link>
+              </Navigate>
             </li>
             <li>
-              <Link to="/TataTertib" className="hover:text-[#51a2ff]">
+              <Navigate to="/TataTertib" className="hover:text-[#51a2ff]">
                 Tata Tertib Sekolah
-              </Link>
+              </Navigate>
             </li>
             <li>
-              <Link to="/ProfileGuru" className="hover:text-[#51a2ff]">
+              <Navigate to="/ProfileGuru" className="hover:text-[#51a2ff]">
                 Profil Guru
-              </Link>
+              </Navigate>
             </li>
           </ul>
         </div>
